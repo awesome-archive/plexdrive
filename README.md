@@ -41,6 +41,8 @@ Usage of ./plexdrive mount:
     	The size of each chunk that is downloaded (units: B, K, M, G) (default "10M")
   -c, --config string
     	The path to the configuration directory (default "~/.plexdrive")
+  --drive-id string
+    	The ID of the shared drive to mount (including team drives)
   -o, --fuse-options string
     	Fuse mount options (e.g. -fuse-options allow_other,...)
   --gid int
@@ -67,7 +69,6 @@ Feel free to ask configuration and setup questions here.
 
 ### Supported FUSE mount options
 * allow_other
-* allow_root
 * allow_dev
 * allow_non_empty_mount
 * allow_suid
@@ -88,6 +89,13 @@ whole Google Drive structure. It will only "display" another folder as root inst
 real root folder.
 Don't expect any performance improvement or something else. This option is only for your
 personal folder structuring.
+
+#### Team Drive
+You can pass the ID of a Team Drive as `drive-id` to get access to a Team drive, here's how:
+* Open the Team Drive in your browser
+* Note the format of the URL: https://drive.google.com/drive/u/0/folders/ABC123qwerty987
+* The `drive-id` of this Team Drive is `ABC123qwerty987`
+* Pass it with `--drive-id=ABC123qwerty987` argument to your `plexdrive mount` command
 
 # Contribute
 If you want to support the project by implementing functions / fixing bugs
